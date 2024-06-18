@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    background-color: #282c30;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.navbar-nav{
+    gap: 55px;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.Logo-Img {
+    height: 70px;
+    width: 150px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.logout-btn{
+    font-weight: 500;
+    font-size: 18px;
+}
+

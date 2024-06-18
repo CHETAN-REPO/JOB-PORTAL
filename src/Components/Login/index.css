@@ -9,8 +9,8 @@
 }
 
 
-.my-form {
-    padding: 25px;
+.my-forms {
+    padding: 20px;
     background-color: rgba(51, 49, 49, 0.7);
     color: white;
     border-radius: 10px;
@@ -40,3 +40,42 @@
     margin-top: 10px;
     background-color: #007de0;
 }
+
+/* Media Queries */
+
+/* For small screens (up to 600px) */
+@media only screen and (max-width: 600px) {
+
+    .my-forms{
+        /* background-color: rgba(51, 49, 49, 0.7); */
+        /* color: white; */
+        /* padding: 20px; */
+        min-height: 150px;
+        min-width: 220px;
+        /* border-radius: 15px; */
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+    .my-forms{
+        /* background-color: rgba(51, 49, 49, 0.7); */
+        /* color: white; */
+        /* padding: 20px; */
+        min-height: 270px;
+        min-width: 270px;
+        /* border-radius: 15px; */
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .my-forms{
+        /* background-color: rgba(51, 49, 49, 0.7); */
+        /* color: white; */
+        /* padding: 20px; */
+        min-height: 300px;
+        min-width: 320px;
+        /* border-radius: 15px; */
+    }
+}
+

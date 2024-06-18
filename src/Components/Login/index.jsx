@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; //Method//
 import Cookies from 'js-cookie';
 import Jobs from '../Jobs';
 import './index.css'
@@ -13,6 +14,9 @@ const Login = () => {
         errorMsg: ""
     });
 
+    const token = Cookies.get("jwtToken");
+
+    const navigate = useNavigate();
 
     const onSubmitUserDetails = async (event) => {
 
@@ -37,12 +41,18 @@ const Login = () => {
         console.log(fetchData);
 
         if (response.ok === true) {
-            setValues({...allValues,showErrorMsg : false, errorMsg: ""});
+
+            setValues({ ...allValues, showErrorMsg: false, errorMsg: "" });
 
             Cookies.set("jwtToken", fetchData.jwt_token);
+
+            navigate("/");
+
         }
         else {
-            setValues({...allValues,showErrorMsg : true , errorMsg : fetchData.error_msg})
+
+            setValues({ ...allValues, showErrorMsg: true, errorMsg: fetchData.error_msg })
+
         }
 
     }
@@ -56,10 +66,22 @@ const Login = () => {
     };
 
 
+
+    useEffect(()=>{
+
+        if(token !== undefined){
+
+            navigate("/");
+
+        }
+
+    },[])
+
+
     return (
 
         <div className='my-form-cont '>
-            <form className='w-25 my-form' onSubmit={onSubmitUserDetails}>
+            <form className='w-25 my-forms' onSubmit={onSubmitUserDetails}>
                 <div className="logo-container">
                     <img src="/IMAGES/LOGO.png" alt="Logo" className="Logo-img" />
                 </div>
