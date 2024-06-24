@@ -1,0 +1,108 @@
+
+@media only screen and (max-width: 760px) {
+    .forsmall-devices {
+        padding: 10px;
+        background-color: rgb(25, 25, 25);
+        overflow: hidden; 
+    }
+
+    .forsmall-devices ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .smalldevice-content {
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .smalldevice-logo {
+        height: 60px;
+        width: 100px;
+    }
+
+    .forbig-devices {
+        display: none;
+    }
+
+    nav ul li {
+        margin: 0px 0px 0px 5px;
+    }
+
+    .btn {
+        margin-right: 10px;
+        font-size: 25px;
+    }
+}
+
+
+
+@media only screen and (min-width: 761px) {
+    .forbig-devices {
+        padding: 10px;
+        background-color: rgb(25, 25, 25);
+        overflow: hidden;
+    }
+
+    .forbig-devices ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bigdevice-content{
+        display: flex;
+        gap: 50%;
+    }
+
+    .bigNav-link{
+        color: white;
+        text-decoration: none;
+    }
+
+    .bigdevice-logo{
+        height: 80px;
+        width: 160px;
+    }
+
+    .forsmall-devices{
+        display: none;
+    }
+
+    a:hover{
+        text-decoration: none;
+        color: white;
+    }
+
+    nav ul li {
+        margin: 0px 0px 0px 5px;
+    }
+
+    .bigBtn{
+        font-size: 25px;
+        padding: 2px;
+        width: 125px;
+        margin-right: 5px;
+    }
+
+
+}
+
+
+
+
+

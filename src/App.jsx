@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import Jobs from "./Components/Jobs";
 import Login from "./Components/Login";
 import NotFound from "./Components/NotFound";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 
 
@@ -15,9 +16,9 @@ const App = () =>{
 
     <Routes>
 
-        <Route path="/" element = {<Home/>} ></Route>
+        <Route path="/" element = {<ProtectedRoute Component={Home} />}  ></Route>
 
-        <Route path="/jobs" element = {<Jobs/>} ></Route>
+        <Route path="/jobs" element = {<ProtectedRoute Component={Jobs} />} ></Route>
 
         <Route path="/login" element = {<Login/>} ></Route>
 

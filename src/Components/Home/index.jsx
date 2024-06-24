@@ -1,49 +1,31 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import './index.css'
+import './index.css';
+import Header from '../Header';
+import { Link } from 'react-router-dom';
 
 
-const Home = () => {
+const Home = () => (
 
-    const token = Cookies.get("jwtToken");
+    <section>
+        <Header />
+        <div className="small-cont">
+            <div className="smallhome-cont">
+                <h1 className='smallhome-heading'>
+                    Find The Job That Fits Your Life
+                </h1>
 
-    const navigate = useNavigate();
+                <div className="smallhome-descr">
+                    Millions of people are searching for jobs, salary information, company reviews. Find the job that fits your abilities and potential.
+                </div>
 
-    useEffect(()=>{
-
-        if(token === undefined){
-
-            navigate("/login");
-
-        }
-
-    },[])
-
-
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light">
-            <img src="/IMAGES/LOGO.png" alt="Logo-img" className='Logo-Img ' />
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul className="navbar-nav m-auto">
-                    <li className="nav-item active">
-                        <a className="nav-link text-white" href="#">Home</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link text-white" href="#">Jobs</a>
-                    </li>
-                </ul>
-                <button className="btn btn-primary my-2 my-sm-0 logout-btn" type="submit">Logout</button>
-
+                <Link className="smallhome-btn" to="/jobs">
+                    <button>Find Jobs</button>
+                </Link>
             </div>
-        </nav>
-    )
-}
 
+            <div className="smallimg-cont"></div>
+        </div>
+    </section>
+
+)
 
 export default Home;
