@@ -1,18 +1,29 @@
+import React from "react";
 import "./index.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 
-const Header = () => {
+const Header = () => { 
+
+    const navigate = useNavigate(); // Initialize the useNavigate hook
+
+    const handleLogout = () => {
+        // Remove the JWT token from cookies
+        Cookies.remove("jwtToken");
+
+        // Redirect to the login page
+        navigate("/login");
+    };
 
     return (
-
         <header>
             <div className="forbig-devices">
                 <nav>
                     <ul>
                         <li>
                             <Link to="/">
-                                <img className="bigdevice-logo" src="../IMAGES/LOGO.png" alt="logo"/>
+                                <img className="bigdevice-logo" src="../IMAGES/LOGO.png" alt="logo" />
                             </Link>
                         </li>
 
@@ -26,7 +37,7 @@ const Header = () => {
                             </Link>
                         </li>
 
-                        <li><button className="btn btn-primary text-white bigBtn">Logout</button></li>
+                        <li><button onClick={handleLogout} className="btn btn-primary text-white bigBtn">Logout</button></li>
                     </ul>
                 </nav>
             </div>
@@ -42,27 +53,20 @@ const Header = () => {
 
                         <li className="smalldevice-content">
                             <Link className="nav-link" to="/">
-                                {/* Home */}
                                 <i className="fa-solid fa-house"></i>
                             </Link>
 
                             <Link className="nav-link" to="/jobs">
-                                {/* Jobs */}
                                 <i className="fa-solid fa-briefcase"></i>
                             </Link>
                         </li>
 
-                        <li><button className="btn text-white"><i className="fa-solid fa-right-from-bracket"></i></button></li>
+                        <li><button onClick={handleLogout} className="btn text-white"><i className="fa-solid fa-right-from-bracket"></i></button></li>
                     </ul>
                 </nav>
             </div>
-
         </header>
-    )
-
-
+    );
 }
 
-
 export default Header;
-

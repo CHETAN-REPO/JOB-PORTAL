@@ -1,0 +1,10 @@
+.emptypeList{
+    list-style: none;
+}
+
+.line-seperator{
+    border-color: #7e858e;
+    width: 100%;
+    border-width: 1px;
+    margin: 0;
+}
