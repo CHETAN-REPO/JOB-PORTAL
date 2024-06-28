@@ -23,14 +23,17 @@ const Jobs = ()=>{
 
         const [allValues, setValues] = useState({
 
-            jobsList: []
+            jobsList: [],
+            empType: [],
+            salaryRange: "",
+            searchInput: ""
         });
 
         useEffect(()=>{
             
             const fetchJobsData = async ()=>{
 
-                const api = "https://apis.ccbp.in/jobs";
+                const api = `https://apis.ccbp.in/jobs?employment_type=${allValues.empType}&minimum_package=${allValues.salaryRange}&search=${allValues.searchInput}`;
     
                 const options = {
                     method: 'GET',
@@ -52,7 +55,17 @@ const Jobs = ()=>{
 
         fetchJobsData();
 
-    },[])
+    },[allValues.searchInput   ])
+
+    const onChangeUserIn = (e)=>{
+        if(e.key === "Enter"){
+            setValues({...allValues,searchInput: e.target.value});
+        }
+    }
+
+    const onChangeempType = (value) =>{
+        console.log(value);
+    }
 
 
     return(
@@ -65,11 +78,12 @@ const Jobs = ()=>{
             <div className='filter-alljobs-container'>
 
                 <div className="filter-section-cont">
-                    <FilterSection/>
+                    <FilterSection empTypeChangeFunct = {onChangeempType}/>
                 </div>
 
 
                 <div className="all-jobs-cont">
+                    <input onKeyDown={onChangeUserIn} type="search" className='form-control w-75 mb-3' />
                     <ul>
                         {
                             allValues.jobsList.map( each => <DisplayAllJobs key={each.id} jobsItem ={each}/>)
@@ -86,46 +100,3 @@ const Jobs = ()=>{
 
 export default Jobs;
 
-
-{/* <div className='jobCont'>
-                <div className="heroContainer">
-                    <div className="sidebar">
-                        <div className="hero-card">
-                            <div className="profile"></div>
-                            <h3>Santosh Kumar</h3>
-                            <p>Lead Software Developer and AI-ML expert</p>
-                        </div>
-                        <hr className="seperator" />
-
-                        <div className="Employ-type">
-                            <h5>Type of Employment</h5>
-                                <li><input type="checkbox" className="checkbox-input" id="FULLTIME"></input>
-                                <label htmlhtmlFor="FULLTIME" className="filter-label">Full Time</label></li>
-                                <li><input type="checkbox" className="checkbox-input" id="FULLTIME"></input>
-                                <label htmlFor="FULLTIME" className="filter-label">Part Time</label></li>
-                                <li><input type="checkbox" className="checkbox-input" id="FULLTIME"></input>
-                                <label htmlFor="FULLTIME" className="filter-label">Freelance</label></li>
-                                <li><input type="checkbox" className="checkbox-input" id="FULLTIME"></input>
-                                <label htmlFor="FULLTIME" className="filter-label">Internship</label></li>
-                        </div>
-                        <hr className="seperator" />
-
-                        <div className="salaryrange">
-                            <h5>Salary Range</h5>
-                            <li><input name="salrang" type="radio" className="checkbox-input" value="1000000"></input>
-                            <label htmlFor="1000000" className="filter-label">10 LPA and above</label></li>
-
-                            <li><input name="salrang" type="radio" className="checkbox-input" value="2000000"></input>
-                            <label htmlFor="2000000" className="filter-label">20 LPA and above</label></li>
-
-                            <li><input name="salrang" type="radio" className="checkbox-input" value="3000000"></input>
-                            <label htmlFor="3000000" className="filter-label">30 LPA and above</label></li>
-
-                            <li><input name="salrang" type="radio" className="checkbox-input" value="4000000"></input>
-                            <label htmlFor="4000000" className="filter-label">40 LPA and above</label></li>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="jobsContainer"></div>
-            </div> */}
