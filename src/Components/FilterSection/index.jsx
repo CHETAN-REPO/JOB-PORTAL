@@ -79,13 +79,10 @@ const {empTypeChangeFunct} = props;
 
     const onChangeEmpType = (e)=>{
 
-      empTypeChangeFunct(e.target.value,e.target.checked);
-
-
+      empTypeChangeFunct(e.target.value,e.target.checked );
     }
-    
 
-    
+
     return employmentTypesList.map(eachType => {
 
       return (
@@ -146,14 +143,16 @@ const {empTypeChangeFunct} = props;
         <img src={allValues.profileDetails.profile_image_url} alt="profile" className="profile-image" />
         <h1 className="profile-name">{allValues.profileDetails.name}</h1>
         <p className="profile-bio">{allValues.profileDetails.short_bio}</p>
-      </div>
+    </div>
+
   )
 
   return (
     <div className="filters-group-container">
       {renderProfileDetails()}
+      <hr className="separator"/> 
       {renderEmploymentTypes()}
-      <hr className="separator" />
+      <hr className="separator"/>
       {renderSalaryRangesTypes()}
     </div>
   )

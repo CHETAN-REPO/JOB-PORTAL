@@ -13,7 +13,7 @@ const DisplayAllJobs = (props) => {
     <Link to = {`/jobs/${jobsItem.id}`}>
       <li className="jobs-card rounded">
         <div className="web-logo-rating-cont">
-          <img
+          <img 
             className="jobs-web-logo"
             src={jobsItem.company_logo_url}
             alt=""
@@ -28,16 +28,16 @@ const DisplayAllJobs = (props) => {
 
         <div className="location-ppa-cont">
           <div className="location-empt-cont">
-            <FaLocationDot className="me-1" />
+            <FaLocationDot className="me-1 mr-1" />
             <span className="me-3">{jobsItem.location}</span>
-            <FaBriefcase className="me-1" />
+            <FaBriefcase className="me-1 ml-4 mr-1" />
             <span>{jobsItem.employment_type}</span>
           </div>
 
           <h5>{jobsItem.package_per_annum}</h5>
         </div>
 
-        <hr />
+        <hr className="job-sep" />
 
         <div>
           <h5>Description</h5>

@@ -5,23 +5,33 @@
     margin-bottom: 10px;
     color: white;
 }
+
 .web-logo-rating-cont{
     display: flex;
     margin-bottom: 15px;
-
 }
+
 .rating-cont{
     margin-left: 15px;
 }
+
 .jobs-web-logo{
     width: 70px;
 }
+
 .rating-icon{
     color: gold;
     margin-right: 10px;
 }
+
 .location-ppa-cont{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.job-sep{
+    border-color:  #7e858e;
+    width: 100%;
+    border-width: 1px;
 }

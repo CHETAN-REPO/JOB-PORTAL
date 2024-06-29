@@ -33,6 +33,8 @@ const Jobs = ()=>{
             
             const fetchJobsData = async ()=>{
 
+                console.log(allValues.empType);
+
                 const api = `https://apis.ccbp.in/jobs?employment_type=${allValues.empType}&minimum_package=${allValues.salaryRange}&search=${allValues.searchInput}`;
     
                 const options = {
@@ -55,7 +57,7 @@ const Jobs = ()=>{
 
         fetchJobsData();
 
-    },[allValues.searchInput   ])
+    },[allValues.searchInput,allValues.empType])
 
     const onChangeUserIn = (e)=>{
         if(e.key === "Enter"){
@@ -63,8 +65,17 @@ const Jobs = ()=>{
         }
     }
 
-    const onChangeempType = (value) =>{
-        console.log(value);
+    const onChangeempType = (value, isChecked) =>{
+
+        console.log(isChecked);
+
+        if(isChecked){
+            setValues({...allValues, empType: [...allValues.empType,value]});
+        }
+        else{
+            setValues({...allValues, empType: allValues.empType.filter(each => each !== value)})
+        }
+
     }
 
 
